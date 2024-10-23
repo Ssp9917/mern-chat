@@ -1,7 +1,8 @@
 import express from 'express'
 import cors from 'cors'
+import authRoutes from './routes/auth.routes.js'
 const app = express();
-const port = process.env.PORT || 6001;
+const port = process.env.PORT || 6002;
 
 
 // middleware
@@ -14,7 +15,7 @@ app.use(express.json());
 
 
 //   import routes here
-
+app.use('/auth',authRoutes)
 
 
 app.get("/", (req, res) => {

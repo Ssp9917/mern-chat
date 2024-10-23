@@ -13,11 +13,11 @@ const Main = () => {
                 <LoadingSpinner />
             ) : (
                 <div>
-                    <Navbar />
+                    {/* <Navbar /> */}
                     <div className="min-h-screen">
                         <Outlet />
                     </div>
-                    <Footer />
+                    {/* <Footer /> */}
                 </div>
             )}
         </div>
