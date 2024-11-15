@@ -22,7 +22,7 @@ const Login = () => {
 
 				<form onSubmit={handleSubmit} className='space-y-4'>
 					<div>
-						<label className='block text-sm font-medium text-gray-600'>Username</label>
+						<label className='block text-sm font-medium text-gray-600 text-start'>Username</label>
 						<input
 							type='text'
 							placeholder='Enter username'
@@ -33,7 +33,7 @@ const Login = () => {
 					</div>
 
 					<div>
-						<label className='block text-sm font-medium text-gray-600'>Password</label>
+						<label className='block text-sm font-medium text-gray-600 text-start'>Password</label>
 						<input
 							type='password'
 							placeholder='Enter Password'

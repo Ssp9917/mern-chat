@@ -20,6 +20,7 @@ const SignUp = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+	console.log("function call")	
 		await signup(inputs);
 	};
 
@@ -32,7 +33,7 @@ const SignUp = () => {
 
 				<form onSubmit={handleSubmit} className='space-y-4'>
 					<div>
-						<label className='block text-sm font-medium text-gray-600'>Full Name</label>
+						<label className='block text-start text-sm font-medium text-gray-600'>Full Name</label>
 						<input
 							type='text'
 							placeholder='John Doe'
@@ -43,7 +44,7 @@ const SignUp = () => {
 					</div>
 
 					<div>
-						<label className='block text-sm font-medium text-gray-600'>Username</label>
+						<label className='block text-start text-sm font-medium text-gray-600'>Username</label>
 						<input
 							type='text'
 							placeholder='johndoe'
@@ -54,7 +55,7 @@ const SignUp = () => {
 					</div>
 
 					<div>
-						<label className='block text-sm font-medium text-gray-600'>Password</label>
+						<label className='block text-start text-sm font-medium text-gray-600'>Password</label>
 						<input
 							type='password'
 							placeholder='Enter Password'
@@ -65,7 +66,7 @@ const SignUp = () => {
 					</div>
 
 					<div>
-						<label className='block text-sm font-medium text-gray-600'>Confirm Password</label>
+						<label className='block text-start text-sm font-medium text-gray-600'>Confirm Password</label>
 						<input
 							type='password'
 							placeholder='Confirm Password'
