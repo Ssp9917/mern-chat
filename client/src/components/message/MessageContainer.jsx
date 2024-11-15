@@ -1,22 +1,23 @@
-
-import React from 'react'
-import Messages from './Messages'
-import MessageInput from './MessageInput'
+import React from 'react';
+import Messages from './Messages';
+import MessageInput from './MessageInput';
 
 const MessageContainer = () => {
   return (
-    <div className='md:min-w-[450px] flex flex-col'>
-      <>
-        {/* Header */}
-        <div className='bg-slate-500 px-4 py-2 mb-2'>
-          <span className='label-text'>To:</span> <span className='text-gray-900 font-bold'>John doe</span>
-        </div>
+    <div className='flex flex-col  bg-white shadow-md md:w-full'>
+      {/* Header */}
+      <div className='bg-gray-500 px-4 py-3 text-white flex items-center justify-between'>
+        <span className='font-semibold text-lg'>Chat with</span>
+        <span className='font-bold text-xl'>John Doe</span>
+      </div>
 
-        <Messages />
-        <MessageInput />
-      </>
+      {/* Messages List */}
+      <Messages />
+
+      {/* Message Input */}
+      <MessageInput />
     </div>
-  )
-}
+  );
+};
 
-export default MessageContainer
+export default MessageContainer;
