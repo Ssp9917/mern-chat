@@ -16,7 +16,7 @@ const Sidebar = () => {
           <Conversations />
         </div>
         <div className="mt-auto pt-2 border-t border-gray-200">
-          <LogoutButton />
+          <LogoutButton  />
         </div>
       </div>
     </div>

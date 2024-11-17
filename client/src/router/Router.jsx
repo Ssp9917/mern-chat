@@ -2,8 +2,23 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import { Login, Signup } from "../components";
 import Home from "../pages/home/Home";
+import { useContext } from "react";
+import { useAuthContext } from "../context/AuthContext";
 
+// ProtectRoute component that checks authentication status
+const ProtectRoute = ({ children }) => {
+  const { authUser } = useAuthContext();
 
+  console.log(authUser)
+  
+  // If user is authenticated, render the children (protected content)
+  if (authUser !== null) {
+    return children;
+  } else {
+    // If not authenticated, redirect to Login page
+    return <Login />;
+  }
+};
 
 const router = createBrowserRouter([
   {
@@ -12,18 +27,22 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Home />
+        element: (
+          <ProtectRoute>
+            <Home />
+          </ProtectRoute>
+        ),
       },
-    ]
+    ],
   },
   {
     path: "/signup",
-    element: <Signup />
+    element: <Signup />,
   },
   {
     path: "/login",
-    element: <Login />
-  }
+    element: <Login />,
+  },
 ]);
 
 export default router;

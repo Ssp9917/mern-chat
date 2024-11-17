@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useAuthContext } from './AuthContext'
+import io from 'socket.io-client'
 
 const SocketContext = createContext()
 
@@ -12,10 +13,12 @@ const SocketContextProvider = ({ children }) => {
     const [onlineUsers, setOnlineUsers] = useState([]);
     const { authUser } = useAuthContext()
 
+    const BackendLiveUrl = import.meta.env.VITE_BACKEND_BASE_URL
+
 
     useEffect(() => {
         if (authUser) {
-            const socket = io("https://chat-app-yt.onrender.com", {
+            const socket = io(BackendLiveUrl, {
                 query: {
                     userId: authUser._id,
                 },

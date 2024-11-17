@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { CiLogout } from "react-icons/ci";
+import useLogout from '../../hooks/useLogout';
 
 const LogoutButton = () => {
-  const [loading, setLoading] = useState(false);
+ 
 
-  const handleLogout = () => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 1500); // Simulating logout process
-  };
+  const { loading, logout } = useLogout();
 
   return (
     <button
-      onClick={handleLogout}
+      onClick={logout}
       className='flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-red-500 transition-colors duration-150'
       disabled={loading}
     >
