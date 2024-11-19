@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
-import { Login, Signup } from "../components";
+import { Login, MessageContainer, Signup } from "../components";
 import Home from "../pages/home/Home";
 import { useContext } from "react";
 import { useAuthContext } from "../context/AuthContext";
+import MobailMessage from "../components/message/MobailMessage";
 
 // ProtectRoute component that checks authentication status
 const ProtectRoute = ({ children }) => {
@@ -33,6 +34,15 @@ const router = createBrowserRouter([
           </ProtectRoute>
         ),
       },
+      {
+        path: "/conversation/:id",
+        element: (
+          <ProtectRoute>
+            <MobailMessage />
+          </ProtectRoute>
+        ),
+      },
+
     ],
   },
   {

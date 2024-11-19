@@ -1,6 +1,7 @@
 import React from "react";
 import useConversation from "../../zustand/useConversation";
 import { useSocketContext } from "../../context/SocketContext";
+import { useNavigate } from "react-router-dom";
 
 const Conversation = ({ conversation }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
@@ -9,12 +10,23 @@ const Conversation = ({ conversation }) => {
   const { onlineUsers } = useSocketContext();
   const isOnline = onlineUsers.includes(conversation._id);
 
+  const navigate = useNavigate()
+
+  const handleNavigate = (id) => {
+    if (window.innerWidth <= 768) { // Mobile screen width
+      navigate(`/conversation/${id}`);
+    }
+  }
+
   return (
     <div
       className={`${
         isSelected ? "bg-sky-600" : "hover:bg-gray-100"
       } flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-150`}
-      onClick={() => setSelectedConversation(conversation)}
+      onClick={() => {
+        setSelectedConversation(conversation);
+        handleNavigate(conversation._id);
+      }}
     >
       <div className="relative w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center font-bold text-white">
         <img

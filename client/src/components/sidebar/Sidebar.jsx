@@ -5,7 +5,7 @@ import LogoutButton from "./LogoutButton";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col h-screen bg-white shadow-md">
+    <div className="flex flex-col w-full md:w-[300px] h-screen bg-white shadow-md">
       <div className="bg-gray-500 px-4 py-3 text-white flex items-center justify-center">
         <h2 className="font-semibold text-lg">Users</h2>
       </div>

@@ -7,7 +7,7 @@ import { TiMessages } from "react-icons/ti";
 import { IoArrowBack } from "react-icons/io5"; // Back button icon
 import { useAuthContext } from "../../context/AuthContext";
 
-const MessageContainer = () => {
+const MobailMessage = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const { id } = useParams(); // Retrieve conversation ID from URL
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const MessageContainer = () => {
   }, [id, setSelectedConversation]);
 
   return (
-    <div className="flex-col h-screen hidden md:block bg-white shadow-md md:w-[400px]">
+    <div className="flex-col h-screen md:hidden bg-white shadow-md md:w-[400px]">
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
@@ -58,7 +58,7 @@ const MessageContainer = () => {
   );
 };
 
-export default MessageContainer;
+export default MobailMessage;
 
 const NoChatSelected = () => {
   const { authUser } = useAuthContext();

@@ -1,15 +1,17 @@
 import { MessageContainer, Sidebar } from "../../components";
 
 const Home = () => {
-	return (
-		<div className='flex  md:flex-row   mx-auto rounded-lg overflow-hidden shadow-lg bg-white'>
-			{/* Sidebar */}
-			<Sidebar />
+  return (
+    <div className=" rounded-lg overflow-hidden shadow-lg bg-black">
+      <div className="flex max-w-3xl mx-auto">
+        {/* Sidebar */}
+        <Sidebar />
 
-			{/* Message Container */}
-			<MessageContainer />
-		</div>
-	);
+        {/* Message Container */}
+        <MessageContainer />
+      </div>
+    </div>
+  );
 };
 
 export default Home;
