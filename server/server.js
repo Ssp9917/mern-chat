@@ -7,20 +7,19 @@ import dbConfig from "./db/connectToMongoDb.js";
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
-import { app, server } from "./socket/socket.js";
+import {app, server} from "./socket/socket.js";
 
 
-
-const port = process.env.PORT || 6002;
+const port = process.env.NODE_DOCKER_PORT || 6002;
 
 // middleware
 dotenv.config();
 app.use(
-  cors({
-    origin: "http://localhost:5173", // Allow requests from any origin
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
+    cors({
+        origin: "http://localhost:5173", // Allow requests from any origin
+        credentials: true,
+        allowedHeaders: ["Content-Type", "Authorization"],
+    })
 );
 app.use(express.json());
 app.use(cookieParser());
@@ -34,9 +33,9 @@ app.use("/api/message", messageRoutes);
 app.use("/api/user", userRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Hello Foodi Client Server!");
+    res.send("Hello Foodi Client Server!");
 });
 
 server.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 });
